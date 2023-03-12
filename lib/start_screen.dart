@@ -19,8 +19,8 @@ class _StartScreenState extends State<StartScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-   // requestPermission();
-    //getToken();
+    requestPermission();
+    getToken();
   }
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,10 @@ class _StartScreenState extends State<StartScreen> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: defaultButton(text:'Start',
-          function: (){Navigator.push(context, MaterialPageRoute(builder: (ctx)=>const OrderListScreen()));} )
+          function: (){
+            sendPushMessage();
+            Navigator.push(context, MaterialPageRoute(builder: (ctx)=>const OrderListScreen()));
+          })
         ),
       ),
     );
